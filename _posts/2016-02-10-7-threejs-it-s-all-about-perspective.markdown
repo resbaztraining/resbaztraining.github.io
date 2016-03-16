@@ -7,7 +7,7 @@ layout: post
 _Learning objectives:_
 
 * understand the perspective of the camera.
-* set the position of mesh and camera.
+* positioning and rotating the camera.
 * adding axes.
 
 At the moment, we're only seeing half the brain. To fix that, we'll need to understand our camera a little bit better. 
@@ -15,7 +15,7 @@ When we initiated the camera, we gave it some default parameters. If we look at 
 {%highlight javascript%}
 PerspectiveCamera( fov, aspect, near, far )
 {%endhighlight%}
-`fov` is the view angle, `aspect` the aspect ratio, and `near` and `far` set the range of things you can see in the scene. This image might help to get a better understanding about what's going on:
+`fov` is the vertical field of view angle, `aspect` the aspect ratio, and `near` and `far` set the range of things you can see in the scene. This image might help to get a better understanding about what's going on:
 ![https://www3.ntu.edu.sg/home/ehchua/programming/opengl/CG_BasicsTheory.html](https://www3.ntu.edu.sg/home/ehchua/programming/opengl/images/Graphics3D_CameraPerspective.png "camera setup")
 
 ___
@@ -54,7 +54,7 @@ Move the camera over the brain, onto the z-axis. What are we looking at?
 
 ___
 
-If we move the camera, it miraculously focusses on the brain again. If we don't want that, but want the default view when we load the page to be something else, we can tell it to look at any other point in the coordinate system instead, using `camera.lookAt()`. This command is used with a ThreeJS vector (we'll see more of these later). We'll create a new one on the fly:
+If we move the camera, it miraculously focusses on the brain again (at 0,0,0). If we don't want that, but want the default view when we load the page to be something else, we can tell it to look at any other point in the coordinate system instead, using `camera.lookAt()`. This command is used with a ThreeJS vector (we'll see more of these later). We'll create a new one on the fly:
 
 {%highlight html%}
 camera.lookAt( new THREE.Vector3( 100, 10, 10 ) );
